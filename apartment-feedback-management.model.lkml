@@ -20,9 +20,9 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 # }
 
 explore: apartment-feedbacks {
-  view_name: dm_comments
-  join: dm_location  {
-    sql_on: ${dm_location._id} = ${dm_comments.listing_id} ;;
+  view_name: reviews
+  join: locations  {
+    sql_on: ${locations._id} = ${reviews.listing_id} ;;
     relationship:  many_to_one
   }
 }

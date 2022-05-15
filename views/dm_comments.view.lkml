@@ -1,4 +1,4 @@
-view: dm_comments {
+view: reviews {
   sql_table_name: `ibpa-demo.commentsnlu.dm_comments`
     ;;
 
@@ -9,7 +9,7 @@ view: dm_comments {
 
   dimension: is_clean {
     type: yesno
-    sql: ${TABLE}.clean ;;
+    sql: CASE WHEN ${TABLE}.clean > 0 THEN 'Yes' Else 'No' ;;
   }
 
   dimension: review {
@@ -37,6 +37,7 @@ view: dm_comments {
   }
 
   dimension: int64_field_0 {
+    hidden: yes
     type: number
     sql: ${TABLE}.int64_field_0 ;;
   }
@@ -47,6 +48,7 @@ view: dm_comments {
   }
 
   dimension: listing_id {
+    hidden:  yes
     type: number
     sql: ${TABLE}.listing_id ;;
   }
@@ -57,19 +59,19 @@ view: dm_comments {
     sql: ${TABLE}.location ;;
   }
 
-  dimension: name {
+  dimension: location_name {
     type: string
     sql: ${TABLE}.name ;;
   }
 
   dimension: is_nice {
     type: number
-    sql: ${TABLE}.nice ;;
+    sql: CASE WHEN ${TABLE}.nice > 0 THEN 'Yes' ELSE 'No' ;;
   }
 
   dimension: is_noisy {
     type: number
-    sql: ${TABLE}.noisy ;;
+    sql: CASE WHEN ${TABLE}.noisy > 0 THEN 'Yes' ELSE 'No' ;;
   }
 
   dimension: is_quiet {
@@ -77,7 +79,7 @@ view: dm_comments {
     sql: ${TABLE}.quiet ;;
   }
 
-  dimension: responsive {
+  dimension: is_responsive {
     type: number
     sql: ${TABLE}.responsive ;;
   }
@@ -92,7 +94,7 @@ view: dm_comments {
     sql: ${TABLE}.reviewer_name ;;
   }
 
-  dimension: reviews_id {
+  dimension: review_id {
     type: number
     sql: ${TABLE}.reviews_id ;;
   }
@@ -124,6 +126,6 @@ view: dm_comments {
 
   measure: count {
     type: count
-    drill_fields: [reviewer_name, name]
+    drill_fields: [reviewer_name, location_name]
   }
 }

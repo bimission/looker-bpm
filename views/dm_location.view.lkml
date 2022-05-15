@@ -1,4 +1,4 @@
-view: dm_location {
+view: locations {
   sql_table_name: `ibpa-demo.commentsnlu.dm_location`
     ;;
 
