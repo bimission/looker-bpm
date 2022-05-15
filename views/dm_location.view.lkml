@@ -9,7 +9,7 @@ view: locations {
 
   dimension: location_cooridates {
     type:  location
-    sql_latitude:  ${TABLE}.lattitude ;;
+    sql_latitude:  ${TABLE}.latitude ;;
     sql_longitude:  ${TABLE}.longitude ;;
   }
 
