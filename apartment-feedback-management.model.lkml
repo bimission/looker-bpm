@@ -22,7 +22,7 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 explore: apartment-feedbacks {
   view_name: reviews
   join: locations  {
-    sql_on: ${locations._id} = ${reviews.listing_id} ;;
+    sql_on: ${locations.id} = ${reviews.listing_id} ;;
     relationship:  many_to_one
   }
 }
