@@ -7,12 +7,12 @@ view: dm_comments {
     sql: ${TABLE}._id ;;
   }
 
-  dimension: clean {
-    type: number
+  dimension: is_clean {
+    type: yesno
     sql: ${TABLE}.clean ;;
   }
 
-  dimension: comments {
+  dimension: review {
     type: string
     sql: ${TABLE}.comments ;;
   }
@@ -52,6 +52,7 @@ view: dm_comments {
   }
 
   dimension: location {
+    hidden:  yes
     type: number
     sql: ${TABLE}.location ;;
   }
@@ -61,17 +62,17 @@ view: dm_comments {
     sql: ${TABLE}.name ;;
   }
 
-  dimension: nice {
+  dimension: is_nice {
     type: number
     sql: ${TABLE}.nice ;;
   }
 
-  dimension: noisy {
+  dimension: is_noisy {
     type: number
     sql: ${TABLE}.noisy ;;
   }
 
-  dimension: quiet {
+  dimension: is_quiet {
     type: number
     sql: ${TABLE}.quiet ;;
   }
@@ -96,28 +97,28 @@ view: dm_comments {
     sql: ${TABLE}.reviews_id ;;
   }
 
-  dimension: small {
-    type: number
+  dimension: is_small {
+    type: yesno
     sql: ${TABLE}.small ;;
   }
 
-  dimension: spacious {
-    type: number
+  dimension: is_spacious {
+    type: yesno
     sql: ${TABLE}.spacious ;;
   }
 
-  dimension: translation {
+  dimension: review_translation {
     type: string
     sql: ${TABLE}.translation ;;
   }
 
-  dimension: value {
-    type: number
+  dimension: is_valuable {
+    type: yesno
     sql: ${TABLE}.value ;;
   }
 
-  dimension: view {
-    type: number
+  dimension: has_nice_view {
+    type: yesno
     sql: ${TABLE}.view ;;
   }
 

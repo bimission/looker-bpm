@@ -7,15 +7,12 @@ view: dm_location {
     sql: ${TABLE}._id ;;
   }
 
-  dimension: lattitude {
-    type: number
-    sql: ${TABLE}.lattitude ;;
+  dimension: location {
+    type:  location
+    sql_latitude:  ${TABLE}.lattitude ;;
+    sql_longitude:  ${TABLE}.longitude ;;
   }
 
-  dimension: longitude {
-    type: number
-    sql: ${TABLE}.longitude ;;
-  }
 
   measure: count {
     type: count
