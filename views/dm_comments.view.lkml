@@ -3,21 +3,28 @@ view: reviews {
     ;;
 
   dimension: _id {
+    hidden: yes
     type: string
     sql: ${TABLE}._id ;;
   }
 
-  dimension: is_clean {
-    type: yesno
-    sql: CASE WHEN ${TABLE}.clean > 0 THEN 'Yes' Else 'No' ;;
+  dimension: review_id {
+    type: number
+    sql: ${TABLE}.reviews_id ;;
   }
 
-  dimension: review {
+
+  dimension: review_text {
     type: string
     sql: ${TABLE}.comments ;;
   }
 
-  dimension_group: date {
+  dimension: review_translation {
+    type: string
+    sql: ${TABLE}.translation ;;
+  }
+
+  dimension_group: review_date {
     type: time
     timeframes: [
       raw,
@@ -31,18 +38,8 @@ view: reviews {
     sql: ${TABLE}.date ;;
   }
 
-  dimension: hospitability {
-    type: number
-    sql: ${TABLE}.hospitability ;;
-  }
 
-  dimension: int64_field_0 {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.int64_field_0 ;;
-  }
-
-  dimension: language {
+  dimension: review_language {
     type: string
     sql: ${TABLE}.language ;;
   }
@@ -51,6 +48,16 @@ view: reviews {
     hidden:  yes
     type: number
     sql: ${TABLE}.listing_id ;;
+  }
+
+  dimension: reviewer_id {
+    type: number
+    sql: ${TABLE}.reviewer_id ;;
+  }
+
+  dimension: reviewer_name {
+    type: string
+    sql: ${TABLE}.reviewer_name ;;
   }
 
   dimension: location {
@@ -64,64 +71,69 @@ view: reviews {
     sql: ${TABLE}.name ;;
   }
 
-  dimension: is_nice {
+  dimension: is_location_nice {
     type: number
-    sql: CASE WHEN ${TABLE}.nice > 0 THEN 'Yes' ELSE 'No' ;;
+    sql: CASE WHEN ${TABLE}.nice > 0 THEN 'Yes' ELSE 'No' END ;;
   }
 
-  dimension: is_noisy {
+  dimension: is_location_noisy {
     type: number
-    sql: CASE WHEN ${TABLE}.noisy > 0 THEN 'Yes' ELSE 'No' ;;
+    sql: CASE WHEN ${TABLE}.noisy > 0 THEN 'Yes' ELSE 'No' END;;
   }
 
-  dimension: is_quiet {
+  dimension: is_location_quiet {
     type: number
-    sql: ${TABLE}.quiet ;;
+    sql: CASE WHEN ${TABLE}.quiet > 0 THEN 'Yes' ELSE 'No' END  ;;
   }
 
-  dimension: is_responsive {
+  dimension: is_location_responsive {
     type: number
-    sql: ${TABLE}.responsive ;;
+    sql: CASE WHEN  ${TABLE}.responsive > 0 THEN 'Yes' ELSE 'No' END  ;;
   }
 
-  dimension: reviewer_id {
-    type: number
-    sql: ${TABLE}.reviewer_id ;;
-  }
 
-  dimension: reviewer_name {
-    type: string
-    sql: ${TABLE}.reviewer_name ;;
-  }
-
-  dimension: review_id {
-    type: number
-    sql: ${TABLE}.reviews_id ;;
-  }
-
-  dimension: is_small {
+  dimension: is_location_small {
     type: yesno
     sql: ${TABLE}.small ;;
   }
 
-  dimension: is_spacious {
+  dimension: is_location_spacious {
     type: yesno
     sql: ${TABLE}.spacious ;;
   }
 
-  dimension: review_translation {
-    type: string
-    sql: ${TABLE}.translation ;;
-  }
 
-  dimension: is_valuable {
+  dimension: is_location_valuable {
     type: yesno
     sql: ${TABLE}.value ;;
   }
 
-  dimension: has_nice_view {
+  dimension: has_location_nice_view {
     type: yesno
     sql: ${TABLE}.view ;;
+  }
+
+  dimension: is_location_clean {
+    type: yesno
+    sql: CASE WHEN ${TABLE}.clean > 0 THEN 'Yes' Else 'No' END;;
+  }
+
+
+
+
+
+
+
+  dimension: hospitability {
+    hidden:  yes
+    type: number
+    sql: ${TABLE}.hospitability ;;
+  }
+
+  dimension: int64_field_0 {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.int64_field_0 ;;
   }
 
   measure: count {
