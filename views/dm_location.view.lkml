@@ -1,5 +1,5 @@
 view: locations {
-  sql_table_name: `ibpa-demo.commentsnlu.dm_location`
+  sql_table_name: `ibpa-demo.commentsnlu.dm_locations`
     ;;
 
   dimension: id {
