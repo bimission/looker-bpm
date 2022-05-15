@@ -73,49 +73,49 @@ view: reviews {
 
   dimension: is_location_nice {
     type: number
-    sql: CASE WHEN ${TABLE}.nice > 0 THEN 'Yes' ELSE 'No' END ;;
+    sql: CASE WHEN ${TABLE}.nice > 0 THEN True ELSE False END ;;
   }
 
   dimension: is_location_noisy {
     type: number
-    sql: CASE WHEN ${TABLE}.noisy > 0 THEN 'Yes' ELSE 'No' END;;
+    sql: CASE WHEN ${TABLE}.noisy > 0 THEN True ELSE False END;;
   }
 
   dimension: is_location_quiet {
     type: number
-    sql: CASE WHEN ${TABLE}.quiet > 0 THEN 'Yes' ELSE 'No' END  ;;
+    sql: CASE WHEN ${TABLE}.quiet > 0 THEN True ELSE False END  ;;
   }
 
   dimension: is_location_responsive {
     type: number
-    sql: CASE WHEN  ${TABLE}.responsive > 0 THEN 'Yes' ELSE 'No' END  ;;
+    sql: CASE WHEN  ${TABLE}.responsive > 0 THEN True ELSE False END  ;;
   }
 
 
   dimension: is_location_small {
     type: yesno
-    sql: ${TABLE}.small ;;
+    sql: CASE WHEN${TABLE}.small THEN True ELSE False END;;
   }
 
   dimension: is_location_spacious {
     type: yesno
-    sql: ${TABLE}.spacious ;;
+    sql: CASE WHEN ${TABLE}.spacious THEN True ELSE False END;;
   }
 
 
   dimension: is_location_valuable {
     type: yesno
-    sql: ${TABLE}.value ;;
+    sql: CASE WHEN ${TABLE}.value THEN True ELSE False END;;
   }
 
   dimension: has_location_nice_view {
     type: yesno
-    sql: ${TABLE}.view ;;
+    sql: CASE WHEN ${TABLE}.view THEN True ELSE False END;;
   }
 
   dimension: is_location_clean {
     type: yesno
-    sql: CASE WHEN ${TABLE}.clean > 0 THEN 'Yes' Else 'No' END;;
+    sql: CASE WHEN ${TABLE}.clean > 0 THEN True ELSE False END;;
   }
 
 
