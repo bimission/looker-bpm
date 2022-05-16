@@ -21,16 +21,12 @@ view: locations {
       label: "Notify Host (Email)"
       url: "https://example.com/posts"
       icon_url: "https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC84MVwvMTY2NjYzXC9wcm9qZWN0c1wvMjUxMDIzXC9hc3NldHNcLzk4XC80MzYyNTU2XC8zNDQyYjJlYzUzODNmYzg2MmQxMjk3Y2JlOGY1YmMwMC0xNTkxNjkxNDA4LnN2ZyJ9:frontify:C1vZrQEKNC4l1znDXt-NwlBgp7nH9W_C1sfWhZVJns8?width=64"
-      param: {
-        name: "name string"
-        value: "value string"
-      }
       form_param: {
         name: "title"
         type: string
         label: "Title:"
         required: yes
-        default: "Bad review about host friendliness"
+        default: "Negative review about host friendliness"
       }
       form_param: {
         name: "body"
