@@ -26,14 +26,14 @@ view: locations {
         type: string
         label: "Title:"
         required: yes
-        default: "Negative review about host friendliness"
+        default: "Negative review about host friendliness [{{ location_address._value }}]"
       }
       form_param: {
         name: "body"
         type:  textarea
         label: "Message body:"
         required:  yes
-        default: "Hello! You are receiving this email because you are registered as the host of ${} apartment in our Customer Satisfaction Monitor. Your guests posted few negative reviews about your property recetly."
+        default: "Hello! You are receiving this email because you are registered as the host of {{ location_address._value }} apartment in our Customer Satisfaction Monitor. Your guests posted few negative reviews about your property recetly."
       }
   }
   }
