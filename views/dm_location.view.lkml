@@ -28,9 +28,16 @@ view: locations {
       form_param: {
         name: "title"
         type: string
-        label: "possibly-localized-string"
+        label: "Title:"
         required: yes
         default: "Bad review about host friendliness"
+      }
+      form_param: {
+        name: "body"
+        type:  textarea
+        label: "Message body:"
+        required:  yes
+        default: "Hello! You are receiving this email because you are registered as the host of ${} apartment in our Customer Satisfaction Monitor. Your guests posted few negative reviews about your property recetly."
       }
   }
   }
