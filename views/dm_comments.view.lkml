@@ -1,5 +1,5 @@
 view: reviews {
-  sql_table_name: `ibpa-demo.commentsnlu.dm_comments`
+  sql_table_name: `ibpa-demo.commentsnlu.dm_entities`
     ;;
 
   dimension: _id {
@@ -118,6 +118,10 @@ view: reviews {
     sql: CASE WHEN ${TABLE}.clean > 0 THEN True ELSE False END;;
   }
 
+  dimension: is_host_helpful {
+    type: yesno
+    sql: CASE WHEN ${TABLE}.bad_host > 0 THEN True ELSE False END;;
+  }
 
 
 
