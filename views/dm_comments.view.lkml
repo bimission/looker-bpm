@@ -123,14 +123,10 @@ view: reviews {
     sql: CASE WHEN ${TABLE}.clean > 0 THEN True ELSE False END;;
   }
 
-  dimension: is_host_helpful {
+  dimension: is_host_friendly {
     type: yesno
     sql: CASE WHEN ${TABLE}.bad_host > 0 THEN True ELSE False END;;
   }
-
-
-
-
 
 
   dimension: hospitability {
