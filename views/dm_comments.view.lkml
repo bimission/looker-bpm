@@ -44,6 +44,11 @@ view: reviews {
     sql: ${TABLE}.language ;;
   }
 
+  dimension: review_sentiment {
+    type: string
+    sql:  CASE WHEN ${TABLE}.bad_host > 0 THEN 'Negative' ELSE 'Positive' END ;;
+  }
+
   dimension: listing_id {
     hidden:  yes
     type: number
