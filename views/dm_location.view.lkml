@@ -16,6 +16,7 @@ view: locations {
   dimension: location_address {
     type:  string
     sql:  ${TABLE}.address ;;
+    drill_fields: [reviews.review_text]
 
     action: {
       label: "Notify Host (Email)"
